@@ -1,59 +1,47 @@
 import React from 'react'
+import { Container } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
-      
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
 
-      <div className="container collapse navbar-collapse" id="navbarSupportedContent">
-        <a className="navbar-brand" href="#">Ventura Netzwerk</a>
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <Link className="nav-link" to="/home">Home</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/gallery">Gallery</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/productview">Product View</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/crudproduct">Products Management</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/cruduser">Users Management</Link>
-          </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item" href="#">Action</a>
-              <a className="dropdown-item" href="#">Another action</a>
-              <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <form className="form-inline my-2 my-lg-0">
-          <div className="row">
-            <div className="col">
-              <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-            </div>
-            <div className="col">
-              <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </div>          
-          </div>
-        </form>
+    <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary mb-5" data-bs-theme="dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Ventura Netzwerk</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <Link class="nav-link" aria-current="page" to="/home">Home</Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/gallery">Gallery</Link>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Management
+              </a>
+              <ul class="dropdown-menu">
+                <li><Link class="dropdown-item" to="/cruduser">Users</Link></li>
+                <li><Link class="dropdown-item" to="/crudproduct">Products</Link></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
       </div>
     </nav>
+
   )
 }
 
