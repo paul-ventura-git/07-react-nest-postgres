@@ -1,6 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from "react"
 
+import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
+
 function CrudProduct() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
@@ -36,7 +38,7 @@ function CrudProduct() {
 
         <h1>Products</h1>
         <table className="table">
-          <thead>
+          <thead className='text-center'>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Title</th>
@@ -46,10 +48,11 @@ function CrudProduct() {
               <th scope="col">Stock</th>
               <th scope="col">Brand</th>
               <th scope="col">Is Active</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
 
-          <tbody className="table-group-divider">
+          <tbody className="table-group-divider text-center">
 
             {products.map(product => (
               <tr key={product.id}>
@@ -61,6 +64,17 @@ function CrudProduct() {
                 <td>{product.stock}</td>
                 <td>{product.brand}</td>
                 <td>{product.isActive ? "Active" : "No active"}</td>
+                <td style={{minWidth: "150px"}}>
+                  <a class="view mx-2" title="View" data-toggle="tooltip" 
+                    ><FaEye></FaEye></a
+                  >
+                  <a class="edit mx-2" title="Edit" data-toggle="tooltip"
+                    ><FaEdit></FaEdit></a
+                  >
+                  <a class="delete mx-2" title="Delete" data-toggle="tooltip"
+                    ><FaTrash></FaTrash></a
+                  >
+                </td>
               </tr>
             ))}
 
