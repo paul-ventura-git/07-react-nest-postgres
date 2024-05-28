@@ -10,10 +10,22 @@ import MyCard from '../components/MyCard'
 
 function Gallery() {
   let { productId } = useParams();
-  
+  let my_key = process.env.REACT_APP_ACCESS_TOKEN;
+
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:3000/product')
+  
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", "Bearer "+my_key);
+    
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow"
+    };
+
+    fetch('http://192.168.1.41:3000/product', requestOptions)
       .then((res) => {
         return res.json();
       })
