@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react"
 
-import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
+import { FaEdit, FaTrash, FaEye, FaPlusSquare } from "react-icons/fa";
 
 function CrudProduct() {
   const [products, setProducts] = useState([])
@@ -36,7 +36,16 @@ function CrudProduct() {
       
       <div className='container'>
 
-        <h1>Products</h1>
+        <div className="row container">
+          <div className="col">
+            <h2>Products <b>Details</b></h2>
+          </div>
+          <div className="col text-end pt-1">
+            <button type="button" className="btn btn-primary">
+              <FaPlusSquare className='mb-1 mx-1'></FaPlusSquare> Add New
+            </button>
+          </div>
+        </div>
         <table className="table">
           <thead className='text-center'>
             <tr>
@@ -47,7 +56,7 @@ function CrudProduct() {
               <th scope="col">Price</th>
               <th scope="col">Stock</th>
               <th scope="col">Brand</th>
-              <th scope="col">Is Active</th>
+              <th scope="col">Active</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -63,7 +72,7 @@ function CrudProduct() {
                 <td>{product.price}</td>
                 <td>{product.stock}</td>
                 <td>{product.brand}</td>
-                <td>{product.isActive ? "Active" : "No active"}</td>
+                <td>{product.isActive ? "Yes" : "No"}</td>
                 <td style={{minWidth: "150px"}}>
                   <a class="view mx-2" title="View" data-toggle="tooltip" 
                     ><FaEye></FaEye></a

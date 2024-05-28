@@ -1,8 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react"
 
-import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
-
+import { FaEdit, FaTrash, FaEye, FaPlusSquare } from "react-icons/fa";
 
 function CrudUser() {
   const [users, setUsers] = useState([])
@@ -37,7 +36,16 @@ function CrudUser() {
       
       <div className='container'>
 
-        <h1>Users</h1>
+        <div className="row container">
+          <div className="col">
+            <h2>Users <b>Details</b></h2>
+          </div>
+          <div className="col text-end pt-1">
+            <button type="button" className="btn btn-primary">
+              <FaPlusSquare className='mb-1 mx-1'></FaPlusSquare> Add New
+            </button>
+          </div>
+        </div>
         <table className="table">
           <thead className='text-center'>
             <tr>
