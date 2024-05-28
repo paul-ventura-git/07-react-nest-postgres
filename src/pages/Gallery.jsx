@@ -13,7 +13,7 @@ function Gallery() {
   
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
+    fetch('http://localhost:3000/product')
       .then((res) => {
         return res.json();
       })
