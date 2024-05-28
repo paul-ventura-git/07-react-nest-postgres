@@ -8,6 +8,7 @@ import ProductView from "./pages/ProductView";
 import CrudUser from "./pages/CrudUser";
 import CrudProduct from "./pages/CrudProduct";
 import NoPage from "./pages/NoPage";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -21,8 +22,10 @@ function App() {
             <Route path="productview" element={<ProductView />} />
             <Route path="cruduser" element={<CrudUser />} />
             <Route path="crudproduct" element={<CrudProduct />} />
+            
             <Route path="*" element={<NoPage />} />
           </Route>
+          <Route path="login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>
