@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import '../styles/login.css'
 import image from '../img/bootstrap-logo.svg'
 
 function Login() {
-
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({});
 
   const handleChange = (event) => {
@@ -15,7 +16,13 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(inputs.password + inputs.username);
+    if(inputs.username==="pventura@amazon.com" && inputs.password==="123"){
+      alert("Logged in successfully!");
+      navigate("/");
+    } else {
+      alert("Wrong username or password");
+    }
+    
   }
   console.log(inputs);
   return (
