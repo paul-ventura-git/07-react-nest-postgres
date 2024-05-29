@@ -77,22 +77,24 @@ function CrudProduct() {
                 <td>{product.brand}</td>
                 <td>{product.isActive ? "Yes" : "No"}</td>
                 <td style={{minWidth: "150px"}}>
-                  <a class="view mx-2" title="View" data-toggle="tooltip" 
-                    ><FaEye></FaEye></a
-                  >
-                  <a class="edit mx-2" title="Edit" data-toggle="tooltip"
-                    ><FaEdit></FaEdit></a
-                  >
-                  <a class="delete mx-2" title="Delete" data-toggle="tooltip"
-                    ><FaTrash></FaTrash></a
-                  >
+                  <a className="view mx-2" title="View" data-toggle="tooltip"><FaEye></FaEye></a>
+                  <a className="edit mx-2" title="Edit" data-toggle="tooltip"><FaEdit></FaEdit></a>
+                  <a className="delete mx-2" title="Delete" data-toggle="tooltip"><FaTrash></FaTrash></a>
                 </td>
               </tr>
             ))}
 
           </tbody>
         </table>
-
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="/">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="/">1</a></li>
+            <li class="page-item"><a class="page-link" href="/">2</a></li>
+            <li class="page-item"><a class="page-link" href="/">3</a></li>
+            <li class="page-item"><a class="page-link" href="/">Next</a></li>
+          </ul>
+        </nav>
       </div>
 
       )}
