@@ -9,6 +9,8 @@ import CrudProduct from "./pages/CrudProduct";
 import NoPage from "./pages/NoPage";
 import Login from "./pages/Login";
 
+import { LoginContext } from "./LoginContext";
+
 const ProtectedRoute = ({
   isAllowed,
   redirectPath = '/home',
@@ -22,53 +24,47 @@ const ProtectedRoute = ({
 };
 
 function App() {
-  let user1 = {
-    user: "paul",
-    permissions: ["editor", "admin"]
-  };
-  let user = {
-    user: "michael",
-    permissions: ["customer", "premium"]
-  };
-
+  
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="home" element={<Home />} />
-            <Route element={<ProtectedRoute isAllowed={!!user} />}>
-              <Route path="gallery" element={<Gallery />} />
-              <Route path="productview" element={<ProductView />} />
+      
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LoginContext><Layout /></LoginContext>}>
+              <Route index element={<Home />} />
+              <Route path="home" element={<Home />} />
+              <Route element={<ProtectedRoute isAllowed={true} />}>
+                <Route path="gallery" element={<Gallery />} />
+                <Route path="productview" element={<ProductView />} />
+              </Route>
+              <Route 
+                path="cruduser" 
+                element={
+                  <ProtectedRoute
+                    redirectPath="/home"
+                    isAllowed={true}// && user.permissions.includes('editor')}
+                  >
+                    <CrudUser />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="crudproduct" 
+                element={
+                  <ProtectedRoute
+                    redirectPath="/home"
+                    isAllowed={true} //&& user.permissions.includes('editor')}
+                  >
+                    <CrudProduct />
+                  </ProtectedRoute>
+                } 
+              />            
+              <Route path="*" element={<NoPage />} />
             </Route>
-            <Route 
-              path="cruduser" 
-              element={
-                <ProtectedRoute
-                  redirectPath="/home"
-                  isAllowed={!!user && user.permissions.includes('editor')}
-                >
-                  <CrudUser />
-                </ProtectedRoute>
-              } 
-            />
-            <Route 
-              path="crudproduct" 
-              element={
-                <ProtectedRoute
-                  redirectPath="/home"
-                  isAllowed={!!user && user.permissions.includes('editor')}
-                >
-                  <CrudProduct />
-                </ProtectedRoute>
-              } 
-            />            
-            <Route path="*" element={<NoPage />} />
-          </Route>
-          <Route path="login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
+            <Route path="login" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
+      
     </div>
   );
 }
