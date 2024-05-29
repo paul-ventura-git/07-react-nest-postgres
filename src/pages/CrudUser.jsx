@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 
 import { FaEdit, FaTrash, FaEye, FaPlusSquare } from "react-icons/fa";
 
+import FormModalNewUser from '../components/FormModalNewUser';
+
 function CrudUser() {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(false)
@@ -28,23 +30,25 @@ function CrudUser() {
         setLoading(false)
       })
   }, [])
+
   return (
-    <div className="CrudUser">
+    <div className="CrudUser">   
+      <FormModalNewUser></FormModalNewUser>   
       {loading ? (
         <div>Loading...</div>
       ) : (
       
       <div className='container'>
-
         <div className="row container">
           <div className="col">
             <h2>Users <b>Details</b></h2>
           </div>
           <div className="col text-end pt-1">
-            <button type="button" className="btn btn-primary">
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalNewUser">
               <FaPlusSquare className='mb-1 mx-1'></FaPlusSquare> Add New
             </button>
           </div>
+          <FormModalNewUser className="modal"></FormModalNewUser>
         </div>
         <table className="table">
           <thead className='text-center'>
@@ -70,15 +74,12 @@ function CrudUser() {
                 <td>{user.email}</td>
                 <td>{user.isActive ? "Active" : "No active"}</td>
                 <td>
-                  <a class="view mx-2" title="View" data-toggle="tooltip"
-                    ><FaEye></FaEye></a
-                  >
-                  <a class="edit mx-2" title="Edit" data-toggle="tooltip"
-                    ><FaEdit></FaEdit></a
-                  >
-                  <a class="delete mx-2" title="Delete" data-toggle="tooltip"
-                    ><FaTrash></FaTrash></a
-                  >
+                  <a className="view mx-2" title="View" data-toggle="tooltip"
+                    ><FaEye></FaEye></a>
+                  <a className="edit mx-2" title="Edit" data-toggle="tooltip"
+                    ><FaEdit></FaEdit></a>
+                  <a className="delete mx-2" title="Delete" data-toggle="tooltip"
+                    ><FaTrash></FaTrash></a>
                 </td>
               </tr>
             ))}

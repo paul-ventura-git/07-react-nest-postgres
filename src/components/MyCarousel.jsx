@@ -18,7 +18,7 @@ function MyCarousel() {
           </div>
         </div>
         <div className="carousel-item">
-          <img src="https://fastly.picsum.photos/id/177/2515/1830.jpg?hmac=G8-2Q3-YPB2TreOK-4ofcmS-z5F6chIA0GHYAe5yzDY" className="d-block w-100" alt="..." />
+          <img src="https://fastly.picsum.photos/id/250/4928/3264.jpg?hmac=4oIwzXlpK4KU3wySTnATICCa4H6xwbSGifrxv7GafWU" className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block">
             <h5>Second slide label</h5>
             <p>Some representative placeholder content for the second slide.</p>
