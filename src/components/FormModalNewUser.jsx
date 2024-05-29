@@ -10,29 +10,29 @@ function FormModalNewUser() {
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Username:</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" />
+            <div className="mb-3">
+              <label htmlFor="exampleFormControlInput1" className="form-label">Username:</label>
+              <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="" />
             </div>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">First Name:</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" />
+            <div className="mb-3">
+              <label htmlFor="exampleFormControlInput1" className="form-label">First Name:</label>
+              <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="" />
             </div>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Last Name:</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" />
+            <div className="mb-3">
+              <label htmlFor="exampleFormControlInput1" className="form-label">Last Name:</label>
+              <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="" />
             </div>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Email address:</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+            <div className="mb-3">
+              <label htmlFor="exampleFormControlInput1" className="form-label">Email address:</label>
+              <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
             </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <div className="mb-3">
+              <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
+              <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-            <div class="mb-3">
-              <label for="formFile" class="form-label">Default file input example</label>
-              <input class="form-control" type="file" id="formFile" />
+            <div className="mb-3">
+              <label htmlFor="formFile" className="form-label">Default file input example</label>
+              <input className="form-control" type="file" id="formFile" />
             </div>
           </div>
           <div className="modal-footer">
