@@ -1,5 +1,4 @@
 import React from 'react'
-import { MdHeight } from 'react-icons/md'
 
 function MyCard( props ) {
   return (

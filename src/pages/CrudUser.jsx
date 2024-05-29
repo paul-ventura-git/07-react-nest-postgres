@@ -74,9 +74,9 @@ function CrudUser() {
                 <td>{user.email}</td>
                 <td>{user.isActive ? "Active" : "No active"}</td>
                 <td>
-                  <a className="view mx-2" title="View" data-toggle="tooltip"><FaEye></FaEye></a>
-                  <a className="edit mx-2" title="Edit" data-toggle="tooltip"><FaEdit></FaEdit></a>
-                  <a className="delete mx-2" title="Delete" data-toggle="tooltip"><FaTrash></FaTrash></a>
+                  <a href="/" className="view mx-2" title="View" data-toggle="tooltip"><FaEye></FaEye></a>
+                  <a href="/" className="edit mx-2" title="Edit" data-toggle="tooltip"><FaEdit></FaEdit></a>
+                  <a href="/" className="delete mx-2" title="Delete" data-toggle="tooltip"><FaTrash></FaTrash></a>
                 </td>
               </tr>
             ))}
