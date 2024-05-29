@@ -11,7 +11,19 @@ function FormModalNewUser() {
           </div>
           <div className="modal-body">
             <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Email address</label>
+              <label for="exampleFormControlInput1" class="form-label">Username:</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">First Name:</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Last Name:</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email address:</label>
               <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
             </div>
             <div class="mb-3">

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 
 import { FaEdit, FaTrash, FaEye, FaPlusSquare } from "react-icons/fa";
 
+import FormModalNewProduct from '../components/FormModalNewProduct';
+
 function CrudProduct() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
@@ -41,10 +43,11 @@ function CrudProduct() {
             <h2>Products <b>Details</b></h2>
           </div>
           <div className="col text-end pt-1">
-            <button type="button" className="btn btn-primary">
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalNewProduct">
               <FaPlusSquare className='mb-1 mx-1'></FaPlusSquare> Add New
             </button>
           </div>
+          <FormModalNewProduct></FormModalNewProduct>
         </div>
         <table className="table">
           <thead className='text-center'>
