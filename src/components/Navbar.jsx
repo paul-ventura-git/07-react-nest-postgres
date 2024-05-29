@@ -37,14 +37,24 @@ function Navbar() {
             </li>
           </ul>
 
-          <form className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-success" type="submit">Search</button>
-          </form>
-          <button className="btn btn-success" onClick={handleLogin} style={{marginLeft: "10px"}}>Sign In</button>
+          {loggedIn ? (
+            <>
+              <div className='nav-item' style={{color:"white"}}>Welcome, { loggedIn ? "Paul" : ""}</div>
+              <button className="btn btn-success" onClick={handleLogin} style={{marginLeft: "10px"}}>Sign Out</button>
+            </>
+          ) : (
+            <>
+              <form className="d-flex" role="search">
+                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <button className="btn btn-outline-success" type="submit">Search</button>
+              </form>
+              <button className="btn btn-success" onClick={handleLogin} style={{marginLeft: "10px"}}>Sign In</button>
+            </>
+          )}
 
-          <div className='nav-item' style={{color:"white"}}>Welcome { loggedIn ? "Paul" : ""}</div>
-          <button className="btn btn-success" /*onClick={handleLogout}*/ style={{marginLeft: "10px"}}>Sign Out</button>
+
+
+
 
         </div>
       </div>
