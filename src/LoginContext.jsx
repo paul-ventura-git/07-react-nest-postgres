@@ -7,7 +7,7 @@ const MyLoginContext = createContext();
 
 
 /**
- * A dummy function to reder the my context
+ * A dummy function to render the "MyLoginContext"
  * @returns MyLoginContext
  */
 export function useLoginContext() {
