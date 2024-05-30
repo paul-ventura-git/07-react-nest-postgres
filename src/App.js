@@ -9,7 +9,7 @@ import CrudProduct from "./pages/CrudProduct";
 import NoPage from "./pages/NoPage";
 import Login from "./pages/Login";
 
-import { LoginContext } from "./LoginContext";
+import { LoginContext, useLoginContext } from "./LoginContext";
 
 const ProtectedRoute = ({
   isAllowed,
@@ -24,7 +24,8 @@ const ProtectedRoute = ({
 };
 
 function App() {
-  
+  const loggedIn = useLoginContext();
+  console.log("App.js: "+loggedIn)
   return (
     <div className="App">
       
@@ -33,7 +34,7 @@ function App() {
             <Route path="/" element={<LoginContext><Layout /></LoginContext>}>
               <Route index element={<Home />} />
               <Route path="home" element={<Home />} />
-              <Route element={<ProtectedRoute isAllowed={true} />}>
+              <Route element={<ProtectedRoute isAllowed={loggedIn} />}>
                 <Route path="gallery" element={<Gallery />} />
                 <Route path="productview" element={<ProductView />} />
               </Route>
@@ -42,7 +43,7 @@ function App() {
                 element={
                   <ProtectedRoute
                     redirectPath="/home"
-                    isAllowed={true}// && user.permissions.includes('editor')}
+                    isAllowed={loggedIn}// && user.permissions.includes('editor')}
                   >
                     <CrudUser />
                   </ProtectedRoute>
@@ -53,7 +54,7 @@ function App() {
                 element={
                   <ProtectedRoute
                     redirectPath="/home"
-                    isAllowed={true} //&& user.permissions.includes('editor')}
+                    isAllowed={loggedIn} //&& user.permissions.includes('editor')}
                   >
                     <CrudProduct />
                   </ProtectedRoute>
