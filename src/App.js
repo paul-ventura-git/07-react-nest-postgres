@@ -27,9 +27,10 @@ function App() {
   const { user } = useLoginContext();
   return (
     <div className="App">      
-        <BrowserRouter>
+        <BrowserRouter>        
           <Routes>
-            <Route path="/" element={<Layout />}>
+            <Route path="/" index element={<Login />} />
+            <Route path="/home" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="home" element={<Home />} />
               <Route element={<ProtectedRoute isAllowed={user.name} />}>

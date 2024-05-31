@@ -5,6 +5,8 @@ import { useLoginContext } from '../LoginContext';
 
 function Navbar() {
   const { user, handleUserLogin, handleUserLogout } = useLoginContext();
+  console.log("Navbar.jsx: "+user.email)
+  console.log("Navbar.jsx: "+user.lastName)
   return (
     <nav className="navbar bg-dark navbar-expand-lg bg-body-tertiary mb-5" data-bs-theme="dark">
       <div className="container">
@@ -36,9 +38,9 @@ function Navbar() {
             </li>
           </ul>
 
-          { user.name ? (
+          { user.username ? (
             <>
-              <div className='nav-item' style={{color:"white"}}>Welcome, { user ? user.name : ""}</div>
+              <div className='nav-item' style={{color:"white"}}>Welcome, { user ? user.username : ""}</div>
               <button className="btn btn-success" onClick={handleUserLogout} style={{marginLeft: "10px"}}>Sign Out</button>
             </>
           ) : (

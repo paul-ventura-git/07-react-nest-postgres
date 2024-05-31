@@ -41,7 +41,8 @@ function Login() {
       const exists = data.some((elem)=>{
         if(inputs.username===elem.email && inputs.password===elem.password){
           alert("Logged in successfully!");
-          navigate("/");       
+          navigate("/home");
+          handleUserLogin(elem);       
           return true   
         }        
       })

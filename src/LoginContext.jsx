@@ -23,11 +23,13 @@ export function useLoginContext() {
 export function LoginContext({ children }) {
   const [user, setUser] = useState([]);
 
-  const handleUserLogin = () => {
+  const handleUserLogin = (elem) => {
     setUser({
-      name: "John Doe",
-      email: "johndoe@example.com",
-      password: "123",
+      username: elem.username,
+      firstName: elem.firstName,
+      lastName: elem.lastName,
+      email: elem.email,
+      password: elem.password,
       permissions: ["admin", "editor"]
     });
   }
