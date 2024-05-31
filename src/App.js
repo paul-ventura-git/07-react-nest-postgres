@@ -24,12 +24,9 @@ const ProtectedRoute = ({
 };
 
 function App() {
-  const { loggedIn } = useLoginContext();
   const { user } = useLoginContext();
-  console.log("App.js: "+loggedIn);
   return (
-    <div className="App">
-      
+    <div className="App">      
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -65,8 +62,7 @@ function App() {
             </Route>
             <Route path="login" element={<Login />} />
           </Routes>
-        </BrowserRouter>
-      
+        </BrowserRouter>      
     </div>
   );
 }

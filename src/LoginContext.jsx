@@ -21,14 +21,13 @@ export function useLoginContext() {
  * @returns 
  */
 export function LoginContext({ children }) {
-  const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState([]);
 
-  console.log("Context User: "+user+" "+user.name+" "+user.permissions)
   const handleUserLogin = () => {
     setUser({
       name: "John Doe",
       email: "johndoe@example.com",
+      password: "123",
       permissions: ["admin", "editor"]
     });
   }
@@ -37,15 +36,8 @@ export function LoginContext({ children }) {
     setUser({});
   }
 
-  console.log("Context Boolean: "+loggedIn)
-  const handleLoggedIn = () => {
-    setLoggedIn((prev) => !prev);
-  };
-
   return (
     <MyLoginContext.Provider value={{ 
-      loggedIn, 
-      handleLogin: handleLoggedIn,
       user,
       handleUserLogin: handleUserLogin,
       handleUserLogout: handleUserLogout

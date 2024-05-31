@@ -1,12 +1,17 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import '../assets/styles/Login.module.css'
 import image from '../assets/img/bootstrap-logo.svg'
 
+import { useLoginContext } from '../LoginContext';
+
 function Login() {
+
+  const { user, handleUserLogin, handleUserLogout } = useLoginContext();
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({});
+  const [usersList, setUsersList] = useState({});
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -16,12 +21,36 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(inputs.username==="pventura@amazon.com" && inputs.password==="123"){
-      alert("Logged in successfully!");
-      navigate("/");
-    } else {
-      alert("Wrong username or password");
-    }
+
+    let my_key = process.env.REACT_APP_ACCESS_TOKEN;
+ 
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", "Bearer "+my_key);
+    
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow"
+    };
+    
+    fetch("http://localhost:3000/user", requestOptions)
+    .then((response) => response.text())
+    .then((result) => JSON.parse(result))
+    .then((data) => {
+      const exists = data.some((elem)=>{
+        if(inputs.username===elem.email && inputs.password===elem.password){
+          alert("Logged in successfully!");
+          navigate("/");       
+          return true   
+        }        
+      })
+      if (exists===false) { 
+        alert("Wrong username or password")
+      }
+      return false
+    })
+    .catch((error) => console.error(error));
     
   }
   console.log(inputs);

@@ -4,10 +4,8 @@ import { Link } from "react-router-dom";
 import { useLoginContext } from '../LoginContext';
 
 function Navbar() {
-  const { loggedIn, handleLogin } = useLoginContext(); // Recovering attributes and methods from LOGINCONTEXT
   const { user, handleUserLogin, handleUserLogout } = useLoginContext();
   return (
-
     <nav className="navbar bg-dark navbar-expand-lg bg-body-tertiary mb-5" data-bs-theme="dark">
       <div className="container">
         <a className="navbar-brand" href="/">Ventura Netzwerk</a>
@@ -52,15 +50,9 @@ function Navbar() {
               <button className="btn btn-success" onClick={handleUserLogin} style={{marginLeft: "10px"}}>Sign In</button>
             </>
           )}
-
-
-
-
-
         </div>
       </div>
     </nav>
-
   )
 }
 
