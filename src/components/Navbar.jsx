@@ -5,6 +5,7 @@ import { useLoginContext } from '../LoginContext';
 
 function Navbar() {
   const { loggedIn, handleLogin } = useLoginContext(); // Recovering attributes and methods from LOGINCONTEXT
+  const { user, handleUserLogin, handleUserLogout } = useLoginContext();
   return (
 
     <nav className="navbar bg-dark navbar-expand-lg bg-body-tertiary mb-5" data-bs-theme="dark">
@@ -37,10 +38,10 @@ function Navbar() {
             </li>
           </ul>
 
-          {loggedIn ? (
+          { user.name ? (
             <>
-              <div className='nav-item' style={{color:"white"}}>Welcome, { loggedIn ? "Paul" : ""}</div>
-              <button className="btn btn-success" onClick={handleLogin} style={{marginLeft: "10px"}}>Sign Out</button>
+              <div className='nav-item' style={{color:"white"}}>Welcome, { user ? user.name : ""}</div>
+              <button className="btn btn-success" onClick={handleUserLogout} style={{marginLeft: "10px"}}>Sign Out</button>
             </>
           ) : (
             <>
@@ -48,7 +49,7 @@ function Navbar() {
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                 <button className="btn btn-outline-success" type="submit">Search</button>
               </form>
-              <button className="btn btn-success" onClick={handleLogin} style={{marginLeft: "10px"}}>Sign In</button>
+              <button className="btn btn-success" onClick={handleUserLogin} style={{marginLeft: "10px"}}>Sign In</button>
             </>
           )}
 

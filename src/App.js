@@ -24,7 +24,8 @@ const ProtectedRoute = ({
 };
 
 function App() {
-  const { loggedIn, handleLogin } = useLoginContext();
+  const { loggedIn } = useLoginContext();
+  const { user } = useLoginContext();
   console.log("App.js: "+loggedIn);
   return (
     <div className="App">
@@ -34,7 +35,7 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="home" element={<Home />} />
-              <Route element={<ProtectedRoute isAllowed={loggedIn} />}>
+              <Route element={<ProtectedRoute isAllowed={user.name} />}>
                 <Route path="gallery" element={<Gallery />} />
                 <Route path="productview" element={<ProductView />} />
               </Route>
@@ -43,7 +44,7 @@ function App() {
                 element={
                   <ProtectedRoute
                     redirectPath="/home"
-                    isAllowed={loggedIn}// && user.permissions.includes('editor')}
+                    isAllowed={user.name && user.permissions.includes('editor')}
                   >
                     <CrudUser />
                   </ProtectedRoute>
@@ -54,7 +55,7 @@ function App() {
                 element={
                   <ProtectedRoute
                     redirectPath="/home"
-                    isAllowed={loggedIn} //&& user.permissions.includes('editor')}
+                    isAllowed={user.name && user.permissions.includes('editor')}
                   >
                     <CrudProduct />
                   </ProtectedRoute>
