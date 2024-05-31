@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import '../styles/Login.module.css'
-import image from '../img/bootstrap-logo.svg'
+import '../assets/styles/Login.module.css'
+import image from '../assets/img/bootstrap-logo.svg'
 
 function Login() {
   const navigate = useNavigate();

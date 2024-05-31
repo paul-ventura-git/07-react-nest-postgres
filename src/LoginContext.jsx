@@ -22,10 +22,9 @@ export function useLoginContext() {
  */
 export function LoginContext({ children }) {
   const [loggedIn, setLoggedIn] = useState(false);
-
+  console.log("Context: "+loggedIn)
   const handleLoggedIn = () => {
     setLoggedIn((prev) => !prev);
-    console.log(loggedIn)
   };
 
   return (

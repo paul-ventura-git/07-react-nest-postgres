@@ -9,7 +9,7 @@ import CrudProduct from "./pages/CrudProduct";
 import NoPage from "./pages/NoPage";
 import Login from "./pages/Login";
 
-import { LoginContext, useLoginContext } from "./LoginContext";
+import { useLoginContext } from './LoginContext';
 
 const ProtectedRoute = ({
   isAllowed,
@@ -24,14 +24,14 @@ const ProtectedRoute = ({
 };
 
 function App() {
-  const loggedIn = useLoginContext();
-  console.log("App.js: "+loggedIn)
+  const { loggedIn, handleLogin } = useLoginContext();
+  console.log("App.js: "+loggedIn);
   return (
     <div className="App">
       
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<LoginContext><Layout /></LoginContext>}>
+            <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="home" element={<Home />} />
               <Route element={<ProtectedRoute isAllowed={loggedIn} />}>
