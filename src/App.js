@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link, Navigate, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
 
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
@@ -10,7 +10,6 @@ import NoPage from "./pages/NoPage";
 import Login from "./pages/Login";
 
 import { useLoginContext } from './LoginContext';
-import { useState } from 'react'
 
 const ProtectedRoute = ({
   isAllowed,
@@ -36,8 +35,6 @@ const LoggedInRoute = ({
 
 function App() {
   const { user } = useLoginContext();
-  const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-
   return (
     <div className="App">      
         <BrowserRouter>        

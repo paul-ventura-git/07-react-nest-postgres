@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import '../assets/styles/Login.module.css'
 import image from '../assets/img/bootstrap-logo.svg'
@@ -8,10 +8,9 @@ import { useLoginContext } from '../LoginContext';
 
 function Login() {
 
-  const { user, handleUserLogin, handleUserLogout } = useLoginContext();
+  const { handleUserLogin } = useLoginContext();
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({});
-  const [usersList, setUsersList] = useState({});
 
   const handleChange = (event) => {
     const name = event.target.name;
