@@ -30,7 +30,6 @@ function Gallery() {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         setProducts(data);
       });
   }, [productId]);

@@ -7,8 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Navbar() {
   const { user, handleUserLogin, handleUserLogout } = useLoginContext();
   const navigate = useNavigate();
-  console.log("Navbar.jsx: "+user.email)
-  console.log("Navbar.jsx: "+user.lastName)
+
   function backTo(){
     handleUserLogout();
     navigate('/login');

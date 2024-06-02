@@ -53,7 +53,7 @@ function Login() {
     .catch((error) => console.error(error));
     
   }
-  console.log(inputs);
+
   return (
     
       <div className="container text-center py-5">

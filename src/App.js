@@ -11,17 +11,11 @@ import Login from "./pages/Login";
 
 import { useLoginContext } from './LoginContext';
 
-const ProtectedRoute = ({
-  isAllowed,
-  redirectPath = '/home',
-  children,
-}) => {
-  if (!isAllowed) {
-    return <Navigate to={redirectPath} replace />;
-  }
-  return children ? children : <Outlet />;
-};
-
+/**
+ * Wrapper component for ROUTES THAT ARE VISIBLE ONLY FOR LOGGED IN USERS.
+ * @param {*} param0 
+ * @returns 
+ */
 const LoggedInRoute = ({
   isLoggedIn,
   redirectPath = '/login',
@@ -32,6 +26,22 @@ const LoggedInRoute = ({
   }
   return children ? children : <Outlet />;
 }
+
+/**
+ * Wrapper component for ROUTES THAT ARE VISIBLE ONLY FOR ALLOWED USERS.
+ * @param {*} param0 
+ * @returns 
+ */
+const ProtectedRoute = ({
+  isAllowed,
+  redirectPath = '/home',
+  children,
+}) => {
+  if (!isAllowed) {
+    return <Navigate to={redirectPath} replace />;
+  }
+  return children ? children : <Outlet />;
+};
 
 function App() {
   const { user } = useLoginContext();
